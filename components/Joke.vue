@@ -1,8 +1,10 @@
 <template>
     <nuxt-link :to="'jokes/' + id">
-      <p>
-        {{ joke }}
-      </p>
+      <b-card :title="joke" sub-title="Card subtitle">
+        <nuxt-link :to="'jokes/' + id" class="card-link">
+          read more
+        </nuxt-link>
+      </b-card>
     </nuxt-link>
 </template>
 
@@ -12,3 +14,9 @@ export default {
   props: ["joke", "id"]
 }
 </script>
+
+<style>
+  a {
+    text-decoration: none;
+  }
+</style>
