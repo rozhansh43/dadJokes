@@ -7,8 +7,8 @@
 
 <script>
 import axios from "axios"
-import Joke from "../../components/Joke"
-import SearchJokes from "../../components/SearchJokes"
+import Joke from "@/components/Joke"
+import SearchJokes from "@/components/SearchJokes"
 
 export default {
   name:'Jokes',

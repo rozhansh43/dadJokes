@@ -12,7 +12,3 @@ export default {
   props: ["joke", "id"]
 }
 </script>
-
-<style>
-
-</style>
