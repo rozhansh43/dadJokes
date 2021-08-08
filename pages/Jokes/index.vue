@@ -16,20 +16,43 @@ export default {
     Joke,
     SearchJokes
   },
-  async asyncData () {
+  data () {
+    return {
+      jokes: [],
+
+    }
+  },
+  async created () {
     const config = {
       headers: {
         Accept: "application/json"
       }
     }
     try {
-      let res = await axios.get ("https://icanhazdadjoke.com/search", config)
-      return { jokes : res.data.results }
-    } catch (error) {
-      console.log (error)
+      const res = await axios.get ("https://icanhazdadjoke.com/search", config)
+      this.jokes = res.data.results
+    } catch (err) {
+      console.log (err)
     }
   },
- 
+  methods: {
+    async searchText (text) {
+      const config = {
+        headers: {
+          Accept: "application/json"
+        }
+      };
+      try {
+        const res = await axios.get(
+          `https://icanhazdadjoke.com/search?term=${text}`,
+          config
+        );
+        this.jokes = res.data.results
+      } catch (err) {
+        console.log(err)
+      }
+    }
+  },
   head () {
     return {
       title: "jokes list",
